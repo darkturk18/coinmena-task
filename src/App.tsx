@@ -1,25 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from 'react';
+import { Routes, Route } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+import Header from './layout/Header';
+import LoginModal from "./components/LoginModal";
+import Home from './pages/home';
+import Trade from './pages/trade';
+
+import { useStore } from './store/login';
+
+import './App.scss';
+
+const queryClient = new QueryClient()
 
 function App() {
+  const { loggedIn, shouldOpenLoginModal } = useStore();
+
+  useEffect(() => {
+    console.log(loggedIn, shouldOpenLoginModal);
+  }, [loggedIn, shouldOpenLoginModal]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <Header />
+      {(!loggedIn && shouldOpenLoginModal) && <LoginModal />}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/trade" element={<Trade />} />
+      </Routes>
+    </QueryClientProvider>
   );
 }
 
