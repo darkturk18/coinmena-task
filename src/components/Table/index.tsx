@@ -75,7 +75,7 @@ export default function Table() {
                                     <span>{asset.name}</span>
                                 </span>
                                 <span className="coin-price">
-                                    {!!asset?.metrics?.length && `${asset?.metrics?.market_data?.price_usd.toLocaleString()}$`}
+                                    {asset?.metrics?.market_data && `${asset?.metrics?.market_data?.price_usd.toLocaleString()}$`}
                                 </span>
                                 <span className="coin-action">
                                     {<Menu>

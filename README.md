@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# Coin Mena Task
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Demo
+
+[Use this link](https://coinmena-task.vercel.app) to view it in the browser.
 
 ## Available Scripts
 
