@@ -16,6 +16,13 @@
         .crypto-item:hover {
             background-color: transparent;
         }
+
+        .coin-name,
+        .coin-price {
+            cursor: pointer;
+
+            @include change-opacity-on-hover;
+        }
     }
 
     .crypto-item {
