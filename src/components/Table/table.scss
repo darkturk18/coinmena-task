@@ -1,0 +1,77 @@
+.crypto-table__wrapper {
+    margin-top: 20px;
+
+    :is(
+        .crypto-table__body,
+        .crypto-table__header
+    ) {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .crypto-table__header {
+        margin-bottom: 10px;
+
+        .crypto-item,
+        .crypto-item:hover {
+            background-color: transparent;
+        }
+    }
+
+    .crypto-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 40px;
+        background-color: $white;
+        border-radius: 15px;
+
+        &:not( :first-child ) {
+            margin-top: 10px;
+        }
+
+        &:hover {
+            background-color: $white50;
+        }
+    }
+
+    .coin-name {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        line-height: 24px;
+
+        .coin-logo {
+            width: 24px;
+            height: 24px;
+            margin-right: 20px;
+            background-color: $lightgray;
+            border-radius: 50%;
+            background-size: contain;
+        }
+    }
+
+    .coin-price {
+        flex-basis: 200px;
+        flex: 1;
+        line-height: 24px;
+    }
+
+    .coin-action {
+        flex: 0.5;
+        position: relative;
+    }
+
+    .crypto-table__button {
+        margin: 20px auto;
+        text-align: center;
+    }
+}
+
+@include mobile() {
+    .crypto-table__wrapper {
+        .crypto-item {
+            padding: 10px 10px;
+        }
+    }
+}

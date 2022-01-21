@@ -1,0 +1,30 @@
+@mixin mobile() {
+    @media only screen and (max-width: $sm) {
+        @content;
+    }
+}
+
+@mixin change-opacity-on-hover() {
+    &:hover {
+        opacity: 0.40;
+    }
+}
+
+@mixin button-styles {
+    border: none;
+    background-color: $primary;
+    border: solid 1px $white;
+    color: $white;
+    height: 40px;
+    min-width: 100px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 200ms ease-out;
+    border-radius: 5px;
+
+    &:hover {
+        background-color: $white;
+        color: $primary;
+        border: solid 1px $primary;
+    }
+}

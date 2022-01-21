@@ -1,0 +1,95 @@
+.swap-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 74px);
+    padding: 0 16px;
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+
+    small {
+        color: $red;
+        margin: 15px 0;
+        font-size: 16px;
+    }
+
+    &.swapped {
+        flex-direction: column-reverse;
+    }
+
+    .swap-field {
+        width: 100%;
+        position: relative;
+
+        input {
+            width: 100%;
+            min-width: 100%;
+            margin-left: -8px;
+            height: 80px;
+            font-size: 32px;
+        }
+    }
+
+    .usd-label {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+        color: $primary;
+        font-weight: 500;
+    }
+
+    .crypto-asset {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+
+        button {
+            text-transform: capitalize;
+        }
+
+        .dropdown-items {
+            width: 100%;
+            text-transform: capitalize;
+            height: 300px;
+            overflow-y: scroll;
+            padding: 0 5px;
+
+            .menu-item {
+                display: flex;
+                align-items: center;
+            }
+
+            img {
+                width: 20px;
+            }
+        }
+    }
+
+    .swap-icon {
+        background-color: white;
+        border-radius: 50%;
+        padding: 10px;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        box-shadow: 0 0 10px $shadow-black;
+        cursor: pointer;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        z-index: 1;
+    }
+}
+
+@include mobile {
+    .swap-container {
+        height: auto;
+        margin-top: 150px;
+    }
+}

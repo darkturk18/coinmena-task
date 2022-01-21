@@ -1,0 +1,31 @@
+@import 'https://necolas.github.io/normalize.css/8.0.1/normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+
+@import './assets/styles/variables';
+@import './assets/styles/mixins';
+@import './assets/styles/shared';
+@import './assets/styles/animations';
+
+@import './layout/Header/header.scss';
+
+@import './components/Table/table.scss';
+@import './components/LoginModal/login-modal.scss';
+@import './components/Swap/swap.scss';
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: $bg-color;
+    padding-top: 74px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+@include mobile() {
+    body {
+        padding-top: 180px;
+    }
+}

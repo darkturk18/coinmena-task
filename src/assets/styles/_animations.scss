@@ -1,0 +1,19 @@
+@keyframes loading-animation{
+    0%{
+        background-position: -200px 0
+    }
+    100%{
+        background-position: 600px 0
+    }
+}
+
+.animated-background {
+    animation-duration: 1.25s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: loading-animation;
+    animation-timing-function: linear;
+    background-size: 100% 60px;
+    background: linear-gradient(to right, $white 8%, $grey20, $white 33%);
+    position: relative;
+}

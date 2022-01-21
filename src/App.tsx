@@ -1,29 +1,31 @@
-import { useEffect } from 'react';
 import { Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 import Header from './layout/Header';
-import LoginModal from "./components/LoginModal";
 import Home from './pages/home';
+import LoginModal from "./components/LoginModal";
 import Trade from './pages/trade';
 
 import { useStore } from './store/login';
 
-import './App.scss';
-
-const queryClient = new QueryClient()
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      refetchOnMount: true,
+      refetchOnReconnect: false,
+      retry: false,
+    },
+  },
+});
 
 function App() {
-  const { loggedIn, shouldOpenLoginModal } = useStore();
-
-  useEffect(() => {
-    console.log(loggedIn, shouldOpenLoginModal);
-  }, [loggedIn, shouldOpenLoginModal]);
+  const { shouldOpenLoginModal } = useStore();
 
   return (
     <QueryClientProvider client={queryClient}>
       <Header />
-      {(!loggedIn && shouldOpenLoginModal) && <LoginModal />}
+      {shouldOpenLoginModal && <LoginModal />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/trade" element={<Trade />} />
